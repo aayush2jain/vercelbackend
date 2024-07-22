@@ -226,14 +226,14 @@ const changePassword = async(req,res)=>{
 const getCurrentUser = async(req, res) => {
     console.log("yhe user hai",req.user)
    
-    const res =await res
+    const result =await res
     .status(200)
     .json(new ApiResponse(
         200,
         req.user,
         "User fetched successfully"
     ))
-    console.log(res)
+    console.log(result)
 }
 
 const updateAccountDetails = async(req, res) => {
