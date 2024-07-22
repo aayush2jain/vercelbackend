@@ -107,7 +107,7 @@ const loginUser = async (req, res, next) => {
         secure: true
     }
 
-    const che= res
+    const che= await res
     .status(200)
     .cookie("accessToken", accessToken, options)
     .cookie("refreshToken", refreshToken, options)
@@ -120,7 +120,7 @@ const loginUser = async (req, res, next) => {
             "User logged In Successfully"
         )
     )
-    
+    console.log(che)
     return che
     } catch (error) {
         console.error("Error during login:", error);
