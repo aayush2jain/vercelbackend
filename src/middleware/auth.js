@@ -4,13 +4,13 @@ import { User } from "../models/user.model.js";
 
 export const verifyJWT = async (req,_, next) => {
     try {
-        // console.log(req.cookies);
+        
         const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "");
       
         if (!token) {
             console.log("401 Unauthorized request - No token provided");  
         }
-    
+        console.log("token to mil gaya bhai")
         const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     
         const user = await User.findById(decodedToken?._id).select("-password -refreshToken");
